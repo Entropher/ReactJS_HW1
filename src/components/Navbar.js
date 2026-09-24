@@ -5,7 +5,7 @@ export default function Navbar({ list }) {
     <nav className={styles.navbar} aria-label="Main navigation">
       <a className={styles.brand} href="#top" aria-label="Entropher home">
         <span className={styles.brandMark}>E</span>
-        <span>Entropher</span>
+        <span className={styles.brandName}>Entropher</span>
       </a>
       <ul className={styles.links}>
         {list.map((item, index) => (
