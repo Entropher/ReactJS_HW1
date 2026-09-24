@@ -1,69 +1,72 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+const products = [
+  {
+    id: 1,
+    title: "Laptop",
+    image: "/next.svg",
+    price: 999,
+    description: "A powerful laptop for work and study.",
+  },
+  {
+    id: 2,
+    title: "Headphones",
+    image: "/next.svg",
+    price: 149,
+    description: "Comfortable headphones with clear sound.",
+  },
+  {
+    id: 3,
+    title: "Smartphone",
+    image: "/next.svg",
+    price: 699,
+    description: "A modern smartphone for everyday use.",
+  },
+];
+
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={styles.page} id="top">
+      <section className={styles.catalog} id="products">
+        <div className={styles.sectionHeader}>
+          <div>
+            <p className={styles.eyebrow}>The collection</p>
+            <h2>Featured products</h2>
+          </div>
+          <p className={styles.count}>03 items</p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className={styles.productGrid}>
+          {products.map((product) => (
+            <article className={styles.productCard} key={product.id}>
+              <div className={styles.imageFrame}>
+                <span className={styles.productNumber}>0{product.id}</span>
+                <Image
+                  className={styles.productImage}
+                  src={product.image}
+                  alt={product.title}
+                  width={200}
+                  height={100}
+                />
+                <button
+                  className={styles.wishlist}
+                  type="button"
+                  aria-label={`Save ${product.title}`}
+                >
+                  ♡
+                </button>
+              </div>
+              <div className={styles.productInfo}>
+                <div>
+                  <h3>{product.title}</h3>
+                  <p>{product.description}</p>
+                </div>
+                <strong>${product.price}</strong>
+              </div>
+            </article>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }

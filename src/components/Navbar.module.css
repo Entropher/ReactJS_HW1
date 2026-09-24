@@ -1,0 +1,95 @@
+.navbar {
+  align-items: center;
+  background: rgba(250, 249, 246, 0.86);
+  border-bottom: 1px solid #e6e3dc;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px clamp(24px, 6vw, 88px);
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(18px);
+  z-index: 10;
+}
+
+.brand,
+.links,
+.links a {
+  align-items: center;
+  display: flex;
+}
+
+.brand {
+  color: #1d2a25;
+  font-size: 21px;
+  font-weight: 700;
+  gap: 10px;
+  letter-spacing: -0.5px;
+}
+
+.brandMark {
+  align-items: center;
+  background: #d9f26a;
+  border-radius: 10px;
+  color: #1d2a25;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+}
+
+.links {
+  gap: clamp(16px, 3vw, 38px);
+  list-style: none;
+}
+
+.links a {
+  color: #69716c;
+  font-size: 13px;
+  font-weight: 600;
+  height: 34px;
+  position: relative;
+  transition: color 180ms ease;
+}
+
+.links a:hover,
+.links .active {
+  color: #1d2a25;
+}
+
+.links .active::after {
+  background: #8ba72c;
+  border-radius: 10px;
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 18px;
+}
+
+.profile {
+  background: #1d2a25;
+  border: 0;
+  border-radius: 50%;
+  color: #f5f5ee;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  height: 34px;
+  width: 34px;
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    padding: 14px 20px;
+  }
+
+  .links {
+    gap: 13px;
+  }
+
+  .links li:nth-child(2),
+  .links li:nth-child(3) {
+    display: none;
+  }
+}
