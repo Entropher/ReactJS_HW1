@@ -9,11 +9,8 @@ export default function Navbar({ list }) {
       </a>
       <ul className={styles.links}>
         {list.map((item, index) => (
-          <li key={`${item}-${index}`}>
-            <a
-              className={index === 0 ? styles.active : ""}
-              href={`#${item.toLowerCase()}`}
-            >
+          <li key={item}>
+            <a href={`#${id}`} className={isActive ? styles.active : ""}>
               {item}
             </a>
           </li>
